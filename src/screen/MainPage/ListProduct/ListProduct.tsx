@@ -8,12 +8,15 @@ import {colors} from '../../../constant/colors';
 import FastImage from 'react-native-fast-image';
 import {ms} from 'react-native-size-matters';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import ListCategory from '../ListCategory/ListCategory';
 
 const ListProduct = () => {
   const {dataProduct} = useSelector((state: RootState) => state.reducers);
 
   const _renderItem = (item?: dataProductType) => {
+    const positiveNumber = Math.floor(item?.rating || 0);
+    const decimal = (item?.rating || 0) - positiveNumber;
     return (
       <CardWithShadow containerStyle={styles.containerCard}>
         <View style={styles.headerCardContent}>
@@ -47,6 +50,19 @@ const ListProduct = () => {
           style={{height: ms(120)}}
           resizeMode={FastImage.resizeMode.contain}
         />
+        <View style={styles.ratingContainer}>
+          {[...Array(5)].map(_ => (
+            <FontAwesome name="star-o" size={12} color={colors.lightGrey} />
+          ))}
+          <View style={styles.ratingFilled}>
+            {[...Array(positiveNumber)].map(_ => (
+              <FontAwesome name="star" size={12} color={colors.yellow} />
+            ))}
+            {decimal > 0 && (
+              <FontAwesome name="star-half" size={12} color={colors.yellow} />
+            )}
+          </View>
+        </View>
         <Text style={styles.textName}>{item?.name}</Text>
         <View style={styles.headerCardContent}>
           <Text style={styles.textPrice}>{item?.price}</Text>

@@ -36,6 +36,14 @@ export const styles = StyleSheet.create({
     right: 0,
     padding: ms(4),
   },
+  ratingContainer: {
+    marginTop: ms(6),
+    flexDirection: 'row',
+  },
+  ratingFilled: {
+    position: 'absolute',
+    flexDirection: 'row',
+  },
   textNew: {
     color: colors.black,
     fontWeight: '600',
@@ -50,7 +58,6 @@ export const styles = StyleSheet.create({
   textName: {
     color: colors.grey,
     fontWeight: '600',
-    marginTop: ms(6),
   },
   textPrice: {
     color: colors.black,
