@@ -1,0 +1,9 @@
+export const PRODUCT_LIST = {
+  GET: 'PRODUCT_LIST_GET',
+  SET: 'PRODUCT_LIST_SET',
+};
+
+export const CATEGORY_LIST = {
+  GET: 'CATEGORY_LIST_GET',
+  SET: 'CATEGORY_LIST_SET',
+};

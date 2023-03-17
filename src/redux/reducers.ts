@@ -1,20 +1,18 @@
-import {PRODUCT_LIST} from './action';
-import {actionType} from './types';
+import {createReducer} from '@reduxjs/toolkit';
+import {setCategory, setProduct} from './action';
+import {baseReducersType} from './types';
 
-const initialState = {
-  data: [],
+const initialState: baseReducersType = {
+  dataProduct: [],
+  dataCategory: [],
 };
-const reducers = (state = initialState, action: actionType) => {
-  switch (action.type) {
-    case PRODUCT_LIST.SET:
-      return {
-        ...state,
-        data: action.payload,
-      };
-
-    default:
-      return state;
-  }
-};
+const reducers = createReducer(initialState, builder => {
+  builder.addCase(setProduct, (state, {payload}) => {
+    return {...state, dataProduct: payload};
+  });
+  builder.addCase(setCategory, (state, {payload}) => {
+    return {...state, dataCategory: payload};
+  });
+});
 
 export default reducers;

@@ -3,10 +3,9 @@ import {colors} from '../../constant/colors';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  containerContent: {
-    flex: 1,
+    elevation: 5,
+    shadowColor: colors.black,
+    shadowOpacity: 0.35,
+    alignSelf: 'flex-start',
   },
 });

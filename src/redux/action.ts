@@ -1,18 +1,13 @@
-export const PRODUCT_LIST = {
-  GET: 'PRODUCT_LIST_GET',
-  SET: 'PRODUCT_LIST_SET',
-};
+import {createAction} from '@reduxjs/toolkit';
+import {CATEGORY_LIST, PRODUCT_LIST} from './actionList';
+import {dataCategoryType, dataProductType} from './types';
 
-export const postChat = (payload: any) => {
-  return {
-    type: PRODUCT_LIST.GET,
-    payload,
-  };
-};
+export const getProduct = createAction(PRODUCT_LIST.GET);
+export const setProduct = createAction<Array<dataProductType | undefined>>(
+  PRODUCT_LIST.SET,
+);
 
-export const setChat = (payload: {test: string}) => {
-  return {
-    type: PRODUCT_LIST.SET,
-    payload,
-  };
-};
+export const getCategory = createAction(CATEGORY_LIST.GET);
+export const setCategory = createAction<Array<dataCategoryType | undefined>>(
+  CATEGORY_LIST.SET,
+);
